@@ -1,18 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+/* =====================================
+   AI CODE REVIEWER
+   CHARCOAL + NEON LIME DESIGN
+===================================== */
+
 :root {
     --background: #111410;
     --surface: #191e17;
     --surface-light: #22291f;
     --lime: #c6f36b;
-    --lime-dark: #9bc94a;
     --text: #f1f3e9;
-    --muted: #929b89;
-    --border: #30392a;
+    --muted: #a4ad99;
+    --border: #39442f;
 }
 
-/* Main background */
+/* MAIN BACKGROUND */
 
 .stApp {
     background:
@@ -21,10 +25,10 @@
             rgba(166, 207, 83, 0.09),
             transparent 35%
         ),
-        var(--background);
+        #111410 !important;
 
     color: var(--text) !important;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif !important;
 }
 
 .block-container {
@@ -33,28 +37,22 @@
     padding-bottom: 2rem;
 }
 
-/* Hide Streamlit branding */
-
 #MainMenu,
 footer,
 header {
     visibility: hidden;
 }
 
-/* Hero section */
+/* =====================================
+   HERO
+===================================== */
 
 .hero {
     padding: 45px 42px;
-    background: linear-gradient(
-        120deg,
-        #20291b,
-        #171c15
-    );
-
+    background: linear-gradient(120deg, #20291b, #171c15);
     border: 1px solid #39452c;
     border-radius: 22px;
     margin-bottom: 45px;
-
     position: relative;
     overflow: hidden;
 }
@@ -99,7 +97,9 @@ header {
     margin-top: 15px;
 }
 
-/* Section headings */
+/* =====================================
+   SECTION HEADINGS
+===================================== */
 
 .section-heading {
     margin: 38px 0 20px;
@@ -120,8 +120,6 @@ header {
     font-weight: 600;
 }
 
-/* Field labels */
-
 .field-label {
     color: var(--muted) !important;
     font-size: 10px;
@@ -130,56 +128,79 @@ header {
     margin-bottom: 10px;
 }
 
-/* General text visibility */
+/* =====================================
+   PROGRAMMING LANGUAGE DROPDOWN
+===================================== */
 
-.stApp p,
-.stApp label,
-.stApp span,
-.stApp div {
-    color: inherit;
-}
+/* Dropdown container */
 
-.stMarkdown p {
-    color: var(--text);
-}
-
-/* Dropdown */
-
-.stSelectbox > div > div {
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
+.stSelectbox [data-baseweb="select"] > div {
+    background: #191e17 !important;
+    border: 1px solid #46523b !important;
     border-radius: 12px !important;
-    color: var(--text) !important;
     min-height: 48px;
 }
 
-.stSelectbox div[data-baseweb="select"] span {
-    color: var(--text) !important;
+/* Selected language: Java, Python, C++ */
+
+.stSelectbox [data-baseweb="select"] span,
+.stSelectbox [data-baseweb="select"] input {
+    color: #f1f3e9 !important;
+    -webkit-text-fill-color: #f1f3e9 !important;
 }
 
-/* Dropdown menu */
+/* Dropdown arrow */
+
+.stSelectbox [data-baseweb="select"] svg {
+    fill: #c6f36b !important;
+    color: #c6f36b !important;
+}
+
+/* Dropdown popup */
 
 div[data-baseweb="popover"],
-div[data-baseweb="menu"] {
-    background: var(--surface-light) !important;
+div[data-baseweb="popover"] > div {
+    background: #22291f !important;
+    border: 1px solid #46523b !important;
 }
 
+/* All dropdown options */
+
+div[data-baseweb="popover"] ul,
 div[data-baseweb="popover"] li,
 div[data-baseweb="menu"] li {
-    background: var(--surface-light) !important;
-    color: var(--text) !important;
+    background: #22291f !important;
+    color: #f1f3e9 !important;
 }
+
+/* Option text */
+
+div[data-baseweb="popover"] li *,
+div[data-baseweb="menu"] li * {
+    color: #f1f3e9 !important;
+}
+
+/* Hover option */
 
 div[data-baseweb="popover"] li:hover,
 div[data-baseweb="menu"] li:hover {
     background: #35412b !important;
-    color: var(--lime) !important;
+    color: #c6f36b !important;
 }
 
-/* Engine card */
+/* Selected option */
+
+div[data-baseweb="popover"] li[aria-selected="true"] {
+    background: #35412b !important;
+    color: #c6f36b !important;
+}
+
+/* =====================================
+   ENGINE CARD
+===================================== */
 
 .engine-card {
-    background: var(--surface);
+    background: var(--surface) !important;
     border: 1px solid var(--border);
     padding: 14px 17px;
     border-radius: 12px;
@@ -204,109 +225,128 @@ div[data-baseweb="menu"] li:hover {
     letter-spacing: 1px;
 }
 
-/* Upload section */
+/* =====================================
+   FILE UPLOADER
+===================================== */
+
+.stFileUploader,
+.stFileUploader > div,
+.stFileUploader section {
+    background: transparent !important;
+}
+
+.stFileUploader section {
+    background: #191e17 !important;
+    border: 1px dashed #64784b !important;
+    border-radius: 13px !important;
+}
+
+.stFileUploader section *,
+.stFileUploader label,
+.stFileUploader small,
+.stFileUploader p {
+    color: #f1f3e9 !important;
+}
+
+.stFileUploader small {
+    color: #c6f36b !important;
+}
+
+.stFileUploader button {
+    background: #22291f !important;
+    border: 1px solid #c6f36b !important;
+    color: #c6f36b !important;
+}
+
+/* =====================================
+   UPLOAD INFORMATION CARD
+===================================== */
 
 .upload-info {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: #191e17 !important;
+    border: 1px solid #39442f;
     border-radius: 13px;
     padding: 16px;
     min-height: 130px;
 }
 
 .info-symbol {
-    color: var(--lime) !important;
+    color: #c6f36b !important;
     font-size: 24px;
     margin-bottom: 8px;
 }
 
 .upload-info b {
-    color: var(--text) !important;
+    color: #f1f3e9 !important;
     font-size: 13px;
 }
 
 .upload-info p {
-    color: var(--muted) !important;
+    color: #a4ad99 !important;
     font-size: 12px;
     line-height: 1.6;
 }
 
 .supported-formats {
-    color: var(--lime) !important;
+    color: #c6f36b !important;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 1px;
     margin-top: 12px;
 }
 
-/* File uploader */
+/* =====================================
+   CODE INPUT EDITOR
+===================================== */
 
-.stFileUploader label,
-.stFileUploader section,
-.stFileUploader section *,
-.stFileUploader small,
-.stFileUploader p {
-    color: var(--text) !important;
+.stTextArea,
+.stTextArea > div {
+    background: transparent !important;
 }
-
-.stFileUploader section {
-    background: var(--surface) !important;
-    border: 1px dashed #64784b !important;
-    border-radius: 13px !important;
-}
-
-.stFileUploader small {
-    color: var(--lime) !important;
-}
-
-.stFileUploader button {
-    background: var(--surface-light) !important;
-    border: 1px solid var(--lime) !important;
-    color: var(--lime) !important;
-    border-radius: 8px !important;
-}
-
-/* Text editor */
 
 .stTextArea textarea {
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
+    background: #191e17 !important;
+    border: 1px solid #39442f !important;
     border-radius: 12px !important;
 
-    color: var(--text) !important;
-    -webkit-text-fill-color: var(--text) !important;
-    caret-color: var(--lime) !important;
+    color: #f1f3e9 !important;
+    -webkit-text-fill-color: #f1f3e9 !important;
+    caret-color: #c6f36b !important;
 
-    font-family: 'Consolas', monospace !important;
+    font-family: Consolas, monospace !important;
     font-size: 13px !important;
     line-height: 1.7 !important;
     padding: 20px !important;
 }
 
 .stTextArea textarea::placeholder {
-    color: var(--muted) !important;
-    -webkit-text-fill-color: var(--muted) !important;
+    color: #a4ad99 !important;
+    -webkit-text-fill-color: #a4ad99 !important;
     opacity: 1 !important;
 }
 
-/* Editor footer */
+/* =====================================
+   EDITOR STATUS BAR
+===================================== */
 
 .editor-footer {
     display: flex;
     justify-content: space-between;
-    background: #1a2017;
-    border: 1px solid var(--border);
+    background: #1a2017 !important;
+    border: 1px solid #39442f;
     border-radius: 0 0 10px 10px;
     padding: 12px 17px;
-    color: var(--muted) !important;
+    color: #a4ad99 !important;
     font-size: 10px;
     letter-spacing: 1px;
 }
 
-/* Main action button */
+/* =====================================
+   REVIEW BUTTON
+===================================== */
 
 .stButton > button {
-    background: var(--lime) !important;
+    background: #c6f36b !important;
     color: #17200e !important;
     border: none !important;
     border-radius: 11px !important;
@@ -327,58 +367,179 @@ div[data-baseweb="menu"] li:hover {
     box-shadow: 0 8px 25px rgba(198, 243, 107, 0.15);
 }
 
-/* Expanders */
+/* =====================================
+   ANALYSIS REPORT - EXPANDERS
+===================================== */
 
-.streamlit-expanderHeader {
-    background: var(--surface-light) !important;
-    border: 1px solid var(--border) !important;
+/* Expander outer container */
+
+[data-testid="stExpander"] {
+    background: #191e17 !important;
+    border: 1px solid #39442f !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: 13px;
+}
+
+/* Expander heading */
+
+[data-testid="stExpander"] details summary,
+[data-testid="stExpander"] summary {
+    background: #22291f !important;
+    color: #c6f36b !important;
     border-radius: 10px !important;
-    color: var(--lime) !important;
+}
+
+/* Expander heading text */
+
+[data-testid="stExpander"] summary span,
+[data-testid="stExpander"] summary p {
+    color: #c6f36b !important;
     font-weight: 700 !important;
 }
 
-.streamlit-expanderContent {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    color: var(--text) !important;
-    padding: 20px;
+/* Expander arrow */
+
+[data-testid="stExpander"] summary svg {
+    fill: #c6f36b !important;
+    color: #c6f36b !important;
 }
 
-/* Code blocks */
+/* Expander content */
 
+[data-testid="stExpander"] [data-testid="stExpanderDetails"] {
+    background: #191e17 !important;
+    color: #f1f3e9 !important;
+    border-top: 1px solid #39442f !important;
+    padding: 20px !important;
+}
+
+/* Analysis headings and paragraphs */
+
+[data-testid="stExpander"] .stMarkdown,
+[data-testid="stExpander"] .stMarkdown p,
+[data-testid="stExpander"] .stMarkdown li,
+[data-testid="stExpander"] .stMarkdown h1,
+[data-testid="stExpander"] .stMarkdown h2,
+[data-testid="stExpander"] .stMarkdown h3,
+[data-testid="stExpander"] .stMarkdown strong {
+    color: #f1f3e9 !important;
+}
+
+/* =====================================
+   CODE BLOCKS - OPTIMIZED AND ORIGINAL
+===================================== */
+
+/* Code container */
+
+[data-testid="stCodeBlock"],
 .stCodeBlock {
-    border: 1px solid #37432c !important;
+    background: #191e17 !important;
+    border: 1px solid #39442f !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+/* Code background */
+
+[data-testid="stCodeBlock"] pre,
+[data-testid="stCodeBlock"] code,
+.stCodeBlock pre,
+.stCodeBlock code {
+    background: #191e17 !important;
+    color: #e6efda !important;
+}
+
+/* Code text */
+
+[data-testid="stCodeBlock"] pre span,
+[data-testid="stCodeBlock"] code span {
+    background: transparent !important;
+}
+
+/* Copy button */
+
+[data-testid="stCodeBlock"] button {
+    background: #22291f !important;
+    color: #c6f36b !important;
+    border: 1px solid #39442f !important;
+}
+
+/* =====================================
+   MARKDOWN AND REVIEW TEXT
+===================================== */
+
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3,
+.stMarkdown h4 {
+    color: #f1f3e9 !important;
+}
+
+.stMarkdown p,
+.stMarkdown li {
+    color: #e0e7d7 !important;
+    line-height: 1.75;
+}
+
+.stMarkdown strong,
+.stMarkdown b {
+    color: #c6f36b !important;
+}
+
+.stMarkdown code {
+    background: #293323 !important;
+    color: #d7ff88 !important;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+/* =====================================
+   ORIGINAL SOURCE REFERENCE
+===================================== */
+
+[data-testid="stCodeBlock"] {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   ALERTS
+===================================== */
+
+[data-testid="stAlert"] {
     border-radius: 12px !important;
 }
 
-/* Alerts */
-
-.stAlert {
-    border-radius: 12px !important;
-}
-
-/* Footer */
+/* =====================================
+   FOOTER
+===================================== */
 
 .footer {
-    border-top: 1px solid var(--border);
+    background: transparent !important;
+    border-top: 1px solid #39442f;
     padding-top: 22px;
     margin-top: 65px;
     text-align: center;
-    color: #929b89 !important;
+    color: #a4ad99 !important;
     font-size: 10px;
     letter-spacing: 2px;
 }
 
-/* Scrollbar */
+.footer span {
+    color: #c6f36b !important;
+}
+
+/* =====================================
+   SCROLLBAR
+===================================== */
 
 ::-webkit-scrollbar {
     width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--background);
+    background: #111410;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -386,7 +547,9 @@ div[data-baseweb="menu"] li:hover {
     border-radius: 10px;
 }
 
-/* Responsive */
+/* =====================================
+   RESPONSIVE
+===================================== */
 
 @media (max-width: 768px) {
 
