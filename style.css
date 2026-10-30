@@ -1,0 +1,340 @@
+
+/* =================================
+   AI CODE REVIEWER - DESIGN SYSTEM
+   Charcoal / Neon Lime
+================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #111410;
+    --surface: #191e17;
+    --surface-light: #22291f;
+    --lime: #c6f36b;
+    --lime-dark: #9bc94a;
+    --text: #f1f3e9;
+    --muted: #929b89;
+    --border: #30392a;
+}
+
+/* Main background */
+
+.stApp {
+    background:
+        radial-gradient(
+            ellipse at 85% 0%,
+            rgba(166, 207, 83, 0.09),
+            transparent 35%
+        ),
+        var(--background);
+
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.block-container {
+    max-width: 1150px;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+/* Hide Streamlit branding */
+
+#MainMenu,
+footer,
+header {
+    visibility: hidden;
+}
+
+/* Hero section */
+
+.hero {
+    padding: 45px 42px;
+    background: linear-gradient(
+        120deg,
+        #20291b,
+        #171c15
+    );
+
+    border: 1px solid #39452c;
+    border-radius: 22px;
+    margin-bottom: 45px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "</>";
+    position: absolute;
+    right: 45px;
+    top: 20px;
+    font-size: 125px;
+    font-family: monospace;
+    font-weight: bold;
+    color: rgba(198, 243, 107, 0.08);
+}
+
+.hero-tag {
+    color: var(--lime);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.15;
+}
+
+.hero h1 span {
+    color: var(--lime);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 520px;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+/* Section headings */
+
+.section-heading {
+    margin: 38px 0 20px;
+}
+
+.section-heading span {
+    color: var(--lime);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+    font-size: 23px;
+    margin-top: 7px;
+    font-weight: 600;
+}
+
+/* Labels */
+
+.field-label {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+/* Input fields */
+
+.stSelectbox > div > div,
+.stTextArea textarea,
+.stFileUploader > section {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    color: var(--text) !important;
+}
+
+.stSelectbox > div > div {
+    min-height: 48px;
+}
+
+.stTextArea textarea {
+    font-family: 'Consolas', monospace !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    padding: 20px !important;
+}
+
+/* Engine card */
+
+.engine-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px 17px;
+    border-radius: 12px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.engine-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: var(--lime);
+    margin-right: 10px;
+    box-shadow: 0 0 10px var(--lime);
+}
+
+.engine-status {
+    float: right;
+    color: var(--lime);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Upload information */
+
+.upload-info {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 16px;
+    min-height: 95px;
+}
+
+.info-symbol {
+    color: var(--lime);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.upload-info b {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.upload-info p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* File uploader */
+
+.stFileUploader label {
+    color: var(--text) !important;
+}
+
+.stFileUploader button {
+    border: 1px solid var(--lime) !important;
+    color: var(--lime) !important;
+    background: transparent !important;
+}
+
+/* Editor footer */
+
+.editor-footer {
+    display: flex;
+    justify-content: space-between;
+    background: #1a2017;
+    border: 1px solid var(--border);
+    border-radius: 0 0 10px 10px;
+    padding: 12px 17px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Main action button */
+
+.stButton > button {
+    background: var(--lime) !important;
+    color: #17200e !important;
+    border: none !important;
+    border-radius: 11px !important;
+    height: 54px;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.5px;
+    transition: 0.25s ease;
+}
+
+.stButton > button:hover {
+    background: #d7ff88 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(198, 243, 107, 0.15);
+}
+
+/* Review expanders */
+
+.streamlit-expanderHeader {
+    background: var(--surface-light) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    color: var(--lime) !important;
+    font-weight: 700 !important;
+}
+
+.streamlit-expanderContent {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    color: var(--text);
+    padding: 20px;
+}
+
+/* Code blocks */
+
+.stCodeBlock {
+    border: 1px solid #37432c !important;
+    border-radius: 12px !important;
+}
+
+/* Alerts */
+
+.stAlert {
+    border-radius: 12px !important;
+}
+
+/* Footer */
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    margin-top: 65px;
+    text-align: center;
+    color: #727c69;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #414c35;
+    border-radius: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 22px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero::after {
+        font-size: 65px;
+        right: 15px;
+    }
+
+    .block-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
