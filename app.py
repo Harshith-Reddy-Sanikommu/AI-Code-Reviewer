@@ -9,7 +9,6 @@ st.set_page_config(
 )
 
 
-# Load custom CSS
 def load_css():
     with open("style.css", "r", encoding="utf-8") as f:
         st.markdown(
@@ -21,7 +20,7 @@ def load_css():
 load_css()
 
 
-# Hero section
+# HERO
 st.markdown("""
 <div class="hero">
     <div class="hero-tag">✦ INTELLIGENT CODE ANALYSIS</div>
@@ -34,7 +33,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Configuration
+# CONFIGURATION
 st.markdown("""
 <div class="section-heading">
     <span>01 / CONFIGURATION</span>
@@ -71,7 +70,7 @@ with col2:
     """, unsafe_allow_html=True)
 
 
-# Source code section
+# SOURCE CODE
 st.markdown("""
 <div class="section-heading">
     <span>02 / SOURCE CODE</span>
@@ -108,7 +107,6 @@ with info_col:
     """, unsafe_allow_html=True)
 
 
-# Read uploaded code or accept pasted code
 if uploaded_file:
 
     code = uploaded_file.read().decode("utf-8")
@@ -125,7 +123,7 @@ else:
     )
 
 
-# Editor information
+# EDITOR STATUS
 line_count = len(code.splitlines()) if code else 0
 
 st.markdown(f"""
@@ -137,7 +135,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-# Review button
+# REVIEW
 st.markdown("<br>", unsafe_allow_html=True)
 
 review_clicked = st.button(
@@ -154,72 +152,76 @@ if review_clicked:
 
     else:
 
-        with st.spinner("Analyzing your code with Gemini AI..."):
+        try:
 
-            response = review_code(
-                language,
-                code
+            with st.spinner("Analyzing your code with Gemini AI..."):
+
+                response = review_code(language, code)
+
+            if not response:
+                st.error("No review response received.")
+                st.stop()
+
+            st.success("Review completed successfully!")
+
+            # ANALYSIS REPORT
+            st.markdown("""
+            <div class="section-heading">
+                <span>03 / ANALYSIS REPORT</span>
+                <h3>Your code review results</h3>
+            </div>
+            """, unsafe_allow_html=True)
+
+            parts = response.split("###")
+
+            for part in parts:
+
+                if part.strip():
+
+                    section = part.strip()
+
+                    if "\n" in section:
+                        title, content = section.split("\n", 1)
+                    else:
+                        title = section
+                        content = ""
+
+                    with st.expander(title.strip(), expanded=True):
+
+                        if "Optimized Code" in title:
+
+                            st.code(
+                                content,
+                                language=language.lower()
+                            )
+
+                        else:
+
+                            st.markdown(content)
+
+            # ORIGINAL SOURCE
+            st.markdown("""
+            <div class="section-heading">
+                <span>04 / SOURCE REFERENCE</span>
+                <h3>Original submission</h3>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.code(
+                code,
+                language=language.lower()
             )
 
+        except Exception as e:
 
-        st.success("Review completed successfully!")
-
-
-        # Analysis report
-        st.markdown("""
-        <div class="section-heading">
-            <span>03 / ANALYSIS REPORT</span>
-            <h3>Your code review results</h3>
-        </div>
-        """, unsafe_allow_html=True)
+            st.error(f"Review failed: {e}")
 
 
-        parts = response.split("###")
-
-        for part in parts:
-
-            if part.strip():
-
-                section = part.strip()
-
-                if "\n" in section:
-                    title, text = section.split("\n", 1)
-                else:
-                    title = section
-                    text = ""
-
-                with st.expander(title.strip(), expanded=True):
-
-                    if "Optimized Code" in title:
-
-                        st.code(
-                            text,
-                            language=language.lower()
-                        )
-
-                    else:
-
-                        st.write(text)
-
-
-        # Original source
-        st.markdown("""
-        <div class="section-heading">
-            <span>04 / SOURCE REFERENCE</span>
-            <h3>Original submission</h3>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-        st.code(
-            code,
-            language=language.lower()
-        )
-
-
-# Footer
+# FOOTER
 st.markdown("""
 <div class="footer">
-    BUILT FOR DEVELOPERS &nbsp;·&nbsp; POWERED BY GEMINI AI
+    BUILT FOR DEVELOPERS
+    <span> · </span>
+    POWERED BY GEMINI AI
 </div>
 """, unsafe_allow_html=True)
